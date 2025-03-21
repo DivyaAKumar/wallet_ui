@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wallet_ui/util/my_button.dart';
 import 'package:wallet_ui/util/my_card.dart';
+import 'package:wallet_ui/util/my_list_tile.dart';
 
 class HomePage extends StatefulWidget{
   @override
@@ -13,7 +14,17 @@ class _HomePageState extends State<HomePage> {
   final _controller = PageController();
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        
+      },
+      backgroundColor: Colors.deepPurple[300],
+      child: Icon(Icons.attach_money_outlined,color: Colors.white,size: 25,),),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+
+      ),
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Column(children: [
@@ -118,11 +129,27 @@ class _HomePageState extends State<HomePage> {
               
               ],//end of row children
             ),
-          )
+          ),
         
-        
+        SizedBox(height: 25,),
           //column of stats + transaction
-        
+
+          
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18),
+            child: Column(
+              children: [
+                //stats
+                MyListTile(tileImagePath: "lib/icons/statistics.png", tileText: "Statistics", subTileText: "Payment and Income"),
+                 //transaction
+            MyListTile(tileImagePath: "lib/icons/transaction.png", tileText: "Transactions", subTileText: "Transaction History")
+              ],
+            ),
+          ),
+         
+          
+
+
          ],//end of main column children
         ),
       ),
